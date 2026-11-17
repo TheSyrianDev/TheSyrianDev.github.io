@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omar Baroud — local-first AI in Rust</title>
+<meta name="description" content="Omar Baroud (TheSyrianDev) builds Last AI: a local-first AI studio written in Rust. LastSoft is the company behind it. The goal is AI a person owns — no account, no cloud, nothing rented.">
+<meta name="theme-color" content="#0b120e">
+<link rel="icon" href="assets/icon.svg">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800&f[]=switzer@400,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <a class="who" href="./">Omar Baroud <span>THE SYRIAN DEV</span></a>
+  <nav class="top-nav" aria-label="Sections">
+    <a href="#goal">The goal</a>
+    <a href="#work">Projects</a>
+    <a href="/lastsoft/docs/">Docs</a>
+    <a href="https://github.com/TheSyrianDev">GitHub</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero wrap">
+    <p class="eyebrow">One developer · Rust · no cloud</p>
+    <h1>AI that runs on <em>your machine</em>.</h1>
+    <p class="lede">
+      I'm Omar Baroud. I build local-first AI tooling: a studio, the harness
+      under it, an inference engine and a model downloader. Your models, your
+      memory, your money, your files — and a permission rule that decides what
+      an agent may touch. No account, no telemetry, no cloud in the middle.
+    </p>
+    <ul class="facts">
+      <li>Last AI 0.1.0-alpha.3</li>
+      <li>Linux · Windows · macOS</li>
+      <li>source-available</li>
+      <li>pre-release, and says so</li>
+    </ul>
+  </section>
+
+  <section id="goal" class="wrap">
+    <h2>The goal</h2>
+    <p class="sub">
+      Capable AI that a person owns instead of rents. It is a simple thing to
+      say and a slow thing to build, so the work is chopped into pieces that
+      each have to stand on their own.
+    </p>
+    <ul class="goal-list">
+      <li>
+        <b>01</b>
+        <span><strong>A whole stack on your desk.</strong> The downloader pulls
+        the weights, the engine runs them, the harness runs the turns, the
+        studio is where you work. Four parts, one install, no service in the
+        middle.</span>
+      </li>
+      <li>
+        <b>02</b>
+        <span><strong>Nothing rented.</strong> Loopback is the bus. The only
+        network calls are the ones a request you made implies: a provider you
+        added, a download you started, a search you asked for.</span>
+      </li>
+      <li>
+        <b>03</b>
+        <span><strong>Readable, portable knowledge.</strong> Memory and roles
+        are Markdown, looks are a folder. What the machine concluded about you
+        is a file you can open, edit or delete, and the whole of it moves to a
+        new laptop by copying one directory.</span>
+      </li>
+      <li>
+        <b>04</b>
+        <span><strong>Parts that stand alone.</strong> Somebody should use the
+        downloader and never hear of the studio; somebody should run the
+        harness against their own server. A bundle that only works as a bundle
+        is a lock.</span>
+      </li>
+      <li>
+        <b>05</b>
+        <span><strong>Honest about the state.</strong> Every README names the
+        version and the gaps. No benchmarks I did not run, no screenshots I did
+        not take, no "production ready" on alphaware.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="company" class="wrap">
+    <h2>LastSoft</h2>
+    <p class="sub">
+      The company the suite is built under. One developer, working in the open,
+      shipping pre-release software and saying so.
+    </p>
+    <div class="company">
+      <div>
+        <h3>LastSoft <span class="tag">company</span></h3>
+        <p>
+          LastSoft makes tools that keep AI on the machine it runs on. The
+          products are Last AI and the three parts beneath it — LastHarness,
+          LastEngine and hf-dl — each useful alone, each source-available. The
+          business model is licensing, not subscriptions: PolyForm
+          Noncommercial for the tools, a written agreement for commercial use,
+          and the core download library permissively licensed so other software
+          can embed it.
+        </p>
+      </div>
+      <a class="button" href="https://thesyriandev.github.io/lastsoft/">Visit LastSoft</a>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <h2>Projects</h2>
+    <p class="sub">
+      Four parts of one suite. Each repository is its own thing, with its own
+      release and its own limits.
+    </p>
+    <ul class="work">
+      <li>
+        <span class="name"><a href="https://github.com/TheSyrianDev/LastAI">Last AI</a></span>
+        <p>The studio. A desktop app and a terminal client over a local core: conversations, memory, tools, a team of departments and workers, spend limits.</p>
+        <span class="state">0.1.0-alpha.3</span>
+      </li>
+      <li>
+        <span class="name"><a href="https://github.com/TheSyrianDev/LastHarness">LastHarness</a></span>
+        <p>The harness underneath. Give it a model and a goal and it runs the turn loop: prompt blocks, tool permissions, the team plan, the spend ledger. No downloader, no engine.</p>
+        <span class="state">inside Last AI</span>
+      </li>
+      <li>
+        <span class="name"><a href="https://github.com/TheSyrianDev/LastEngine">LastEngine</a></span>
+        <p>Inference, clean-room, in Rust. One backend trait — CUDA first, then CPU, Vulkan, ROCm and Metal — a hardware probe, and a server that speaks the local dialect.</p>
+        <span class="state">v0.1.0 · dev</span>
+      </li>
+      <li>
+        <span class="name"><a href="https://github.com/TheSyrianDev/hf-dl">hf-dl</a></span>
+        <p>Models and datasets from the Hugging Face Hub: segmented, resumable, verified transfers with a queue you can leave running and a lib crate you can embed.</p>
+        <span class="state">v0.4.0-rc.1</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="wrap">
+    <div class="docs">
+      <div>
+        <h3>Documentation</h3>
+        <p>
+          What each part does, what it deliberately does not do, the commands,
+          the files it writes, and where the suite ends up.
+        </p>
+      </div>
+      <a class="button" href="/lastsoft/docs/">Read the docs</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Omar Baroud · TheSyrianDev</span>
+  <span>
+    <a href="https://github.com/TheSyrianDev">GitHub</a> ·
+    <a href="https://thesyriandev.github.io/lastsoft/">LastSoft</a> ·
+    <a href="/lastsoft/docs/vision.html">Vision</a>
+  </span>
+</footer>
+
+</body>
+</html>
