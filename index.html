@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Omar Baroud — local-first AI in Rust</title>
-<meta name="description" content="Omar Baroud (TheSyrianDev): student, AI developer and technical support. Builds Last AI, a local-first AI studio written in Rust, at LastSoft.">
+<title>Omar Baroud — TheSyrianDev</title>
+<meta name="description" content="Omar Baroud (TheSyrianDev): student, AI developer and technical support. Builds local-first AI software in Rust, most of it around Last AI.">
 <meta name="theme-color" content="#0a0a09">
-<link rel="icon" href="assets/icon.svg">
+<link rel="icon" href="assets/pfp.png" type="image/png">
+<link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <script>
   /* apply a saved theme before first paint so the page never flashes */
   try {
@@ -31,20 +33,15 @@
 
 <header class="top">
   <a class="who" href="./">
-    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-      <rect width="64" height="64" rx="16" fill="#0a0a09"/>
-      <path d="M33 13a19 19 0 0 1 0 38z" fill="#e0a526"/>
-      <path d="M24 13.5a19 19 0 0 0 0 37" fill="none" stroke="#f5f1e6" stroke-width="2.4" stroke-linecap="round"/>
-    </svg>
+    <img class="avatar" src="assets/pfp.png" alt="" width="32" height="32">
     Omar Baroud <span>THE SYRIAN DEV</span>
   </a>
 
   <div class="top-right">
     <nav class="top-nav" aria-label="Sections">
+      <a href="projects.html">Projects</a>
       <a href="#about">About</a>
-      <a href="#work">Projects</a>
-      <a href="#company">LastSoft</a>
-      <a href="/LastSoft/docs/">Docs</a>
+      <a href="#background">Background</a>
       <a href="https://github.com/TheSyrianDev">GitHub</a>
     </nav>
 
@@ -65,21 +62,63 @@
 <main id="main">
 
   <section class="hero wrap">
-    <p class="eyebrow">Student · AI developer · Technical support</p>
-    <h1>AI that runs on <em>your machine</em>.</h1>
-    <p class="lede">
-      I'm Omar Baroud. I've been writing software for about seven years, most of
-      it around AI: how models behave, what makes an agent worth trusting, and
-      what it takes to run the whole stack on hardware you own. <strong>Last
-      AI</strong> is that stack — a studio, the harness under it, an inference
-      engine and a model downloader. Your models, your memory, your files, and a
-      permission rule that decides what an agent may touch.
-    </p>
-    <ul class="facts">
-      <li>Last AI 0.1.0-alpha.3</li>
-      <li>Linux · Windows · macOS</li>
-      <li>written in Rust</li>
-      <li>pre-release, and says so</li>
+    <div class="hero-text">
+      <p class="eyebrow">Student · AI developer · Technical support</p>
+      <h1>Omar Baroud, <em>TheSyrianDev</em>.</h1>
+      <p class="lede">
+        I build AI software that runs on the machine in front of you. Seven years
+        in the field, most of it spent on how models behave, what makes an agent
+        worth trusting, and what it takes to keep a whole stack local instead of
+        rented. My main project is <strong>Last AI</strong> — pre-release, and
+        it says so.
+      </p>
+      <ul class="facts">
+        <li>Rust</li>
+        <li>Linux · Windows</li>
+        <li>AI, agents, local inference</li>
+        <li>Technical support</li>
+      </ul>
+    </div>
+    <div class="hero-mark">
+      <img src="assets/pfp.png" alt="Omar Baroud's monogram: AR, M" width="360" height="360">
+      <p>AR · M<span>TheSyrianDev</span></p>
+    </div>
+  </section>
+
+  <section id="work" class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <a class="more" href="projects.html">All projects →</a>
+    </div>
+
+    <a class="featured" href="projects.html#last-ai">
+      <span class="label">Flagship</span>
+      <h3>Last AI</h3>
+      <p>
+        A local-first AI studio: a desktop app and a terminal client over a core
+        you run yourself. Conversations, memory kept as Markdown, tools with a
+        permission rule, a team of departments and workers, spend limits. Four
+        parts, one install, no service in the middle.
+      </p>
+      <span class="state">0.1.0-alpha.3 · <code>lai</code> / <code>lastai</code></span>
+    </a>
+
+    <ul class="work">
+      <li>
+        <span class="name"><a href="projects.html#lastharness">LastHarness</a></span>
+        <p>The turn loop underneath: prompt blocks, tool permissions, the team plan, the spend ledger.</p>
+        <span class="state">own repo · lh / lastharness</span>
+      </li>
+      <li>
+        <span class="name"><a href="projects.html#lastengine">LastEngine</a></span>
+        <p>Inference in Rust. One backend trait, a hardware probe, and a server that speaks the local dialect.</p>
+        <span class="state">v0.1.0 · dev</span>
+      </li>
+      <li>
+        <span class="name"><a href="projects.html#model-downloader">Model-Downloader</a></span>
+        <p>Models and datasets from the Hugging Face Hub and ModelScope, with segmented, resumable, verified transfers.</p>
+        <span class="state">v0.4.0-rc.1 · mdl</span>
+      </li>
     </ul>
   </section>
 
@@ -89,10 +128,10 @@
       <div>
         <p>
           I'm a student in my first year of secondary school, and I spend the
-          rest of my time building software. Seven years in, the thread through
-          all of it is AI: reading how models actually work, testing where they
-          fall over, and writing the plumbing that lets one run usefully on a
-          normal machine instead of someone else's server.
+          rest of my time in software. Seven years in the field, and the thread
+          through all of it is AI: reading how models actually work, testing
+          where they fall over, and writing the plumbing that lets one run
+          usefully on a normal machine instead of someone else's server.
         </p>
         <p>
           I also do technical support, which is where most of what I know about
@@ -102,15 +141,15 @@
           quietly phoning home.
         </p>
         <p>
-          The suite is written in Rust, talks over loopback, and stores what it
-          knows as files you can open. Everything is developed in the open at
-          <a href="https://github.com/TheSyrianDev">github.com/TheSyrianDev</a>.
+          Most of what I make is open to read at
+          <a href="https://github.com/TheSyrianDev">github.com/TheSyrianDev</a>,
+          and the suite is published under <a href="/LastSoft/">LastSoft</a>.
         </p>
       </div>
       <aside class="aside">
         <dl>
           <dt>Now</dt>
-          <dd>Building Last AI and the three tools beneath it at LastSoft.</dd>
+          <dd>Building Last AI, my main project.</dd>
           <dt>Focus</dt>
           <dd>Local-first AI, agent harnesses, Rust, Linux and Windows.</dd>
           <dt>Also</dt>
@@ -123,116 +162,6 @@
     </div>
   </section>
 
-  <section id="goal" class="wrap">
-    <h2>The goal</h2>
-    <p class="sub">
-      Capable AI that a person owns instead of rents. It is a simple thing to
-      say and a slow thing to build, so the work is chopped into pieces that
-      each have to stand on their own.
-    </p>
-    <ul class="goal-list">
-      <li>
-        <b>01</b>
-        <span><strong>A whole stack on your desk.</strong> The downloader pulls
-        the weights, the engine runs them, the harness runs the turns, the
-        studio is where you work. Four parts, one install, no service in the
-        middle.</span>
-      </li>
-      <li>
-        <b>02</b>
-        <span><strong>Nothing rented.</strong> Loopback is the bus. The only
-        network calls are the ones a request you made implies: a provider you
-        added, a download you started, a search you asked for.</span>
-      </li>
-      <li>
-        <b>03</b>
-        <span><strong>Readable, portable knowledge.</strong> Memory and roles
-        are Markdown, looks are a folder. What the machine concluded about you
-        is a file you can open, edit or delete, and the whole of it moves to a
-        new laptop by copying one directory.</span>
-      </li>
-      <li>
-        <b>04</b>
-        <span><strong>Parts that stand alone.</strong> Somebody should use the
-        downloader and never hear of the studio; somebody should run the
-        harness against their own server. A bundle that only works as a bundle
-        is a lock.</span>
-      </li>
-      <li>
-        <b>05</b>
-        <span><strong>Honest about the state.</strong> Every README names the
-        version and the gaps. No benchmarks I did not run, no screenshots I did
-        not take, no "production ready" on alphaware.</span>
-      </li>
-    </ul>
-  </section>
-
-  <section id="work" class="wrap">
-    <h2>Projects</h2>
-    <p class="sub">
-      Four parts of one suite. Each repository is its own thing, with its own
-      release and its own limits.
-    </p>
-    <ul class="work">
-      <li>
-        <span class="name"><a href="https://github.com/TheSyrianDev/LastAI">Last AI</a></span>
-        <p>The studio. A desktop app and a terminal client (<code>lai</code>) over a local core: conversations, memory, tools, a team of departments and workers, spend limits.</p>
-        <span class="state">0.1.0-alpha.3 · lai / lastai</span>
-      </li>
-      <li>
-        <span class="name"><a href="https://github.com/TheSyrianDev/LastHarness">LastHarness</a></span>
-        <p>The harness underneath. Give it a model and a goal and it runs the turn loop: prompt blocks, tool permissions, the team plan, the spend ledger. No downloader, no engine.</p>
-        <span class="state">own repo · lh / lastharness</span>
-      </li>
-      <li>
-        <span class="name"><a href="https://github.com/TheSyrianDev/LastEngine">LastEngine</a></span>
-        <p>Inference, clean-room, in Rust. One backend trait — CUDA first, then CPU, Vulkan, ROCm and Metal — a hardware probe, and a server that speaks the local dialect.</p>
-        <span class="state">v0.1.0 · dev</span>
-      </li>
-      <li>
-        <span class="name"><a href="https://github.com/TheSyrianDev/Model-Downloader">Model-Downloader</a></span>
-        <p>Models and datasets from the Hugging Face Hub and ModelScope, plus an opt-in Pirate Face route: segmented, resumable, verified transfers with a queue you can leave running and a lib crate you can embed.</p>
-        <span class="state">v0.4.0-rc.1 · mdl</span>
-      </li>
-    </ul>
-  </section>
-
-  <section id="company" class="wrap">
-    <h2>LastSoft</h2>
-    <p class="sub">
-      The company the suite is built under. One developer, working in the open,
-      shipping pre-release software and saying so.
-    </p>
-    <div class="company">
-      <div>
-        <h3>LastSoft <span class="tag">company</span></h3>
-        <p>
-          LastSoft makes tools that keep AI on the machine it runs on. The
-          products are Last AI and the three parts beneath it — LastHarness,
-          LastEngine and Model-Downloader — each useful alone, each
-          source-available. The business model is licensing, not subscriptions:
-          PolyForm Noncommercial for the tools, a written agreement for
-          commercial use, and the core download library permissively licensed so
-          other software can embed it.
-        </p>
-      </div>
-      <a class="button" href="/LastSoft/">Visit LastSoft</a>
-    </div>
-  </section>
-
-  <section class="docs-section wrap">
-    <div class="docs">
-      <div>
-        <h3>Documentation</h3>
-        <p>
-          What each part does, what it deliberately does not do, the commands,
-          the files it writes, and where the suite ends up.
-        </p>
-      </div>
-      <a class="button" href="/LastSoft/docs/">Read the docs</a>
-    </div>
-  </section>
-
   <section id="background" class="wrap">
     <h2>Background</h2>
     <p class="sub">School, languages, and the things I am actually good at.</p>
@@ -240,8 +169,8 @@
       <div>
         <h3>Education</h3>
         <p>Secondary school, first year (10th grade).</p>
-        <p>Self-taught in software: seven years of building, breaking, and
-        reading other people's code.</p>
+        <p>Self-taught in software: seven years in the field, learning by
+        building and by reading other people's code.</p>
       </div>
       <div>
         <h3>Languages</h3>
@@ -267,8 +196,8 @@
   <section id="contact" class="wrap">
     <h2>Contact</h2>
     <p class="sub">
-      Fastest by email. For anything about the suite, the repositories are open
-      to issues.
+      Fastest by email. For anything about the projects, the repositories are
+      open to issues.
     </p>
     <div class="contact">
       <a class="mail" href="mailto:omarbarood64@gmail.com">omarbarood64@gmail.com</a>
@@ -281,9 +210,9 @@
 <footer class="wrap">
   <span>© 2026 Omar Baroud · TheSyrianDev</span>
   <span>
+    <a href="projects.html">Projects</a> ·
     <a href="https://github.com/TheSyrianDev">GitHub</a> ·
-    <a href="/LastSoft/">LastSoft</a> ·
-    <a href="/LastSoft/docs/vision.html">Vision</a>
+    <a href="/LastSoft/">LastSoft</a>
   </span>
 </footer>
 
