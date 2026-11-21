@@ -3,29 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projects — Omar Baroud</title>
-<meta name="description" content="Projects by Omar Baroud (TheSyrianDev): Last AI, the local-first AI studio, and the tools under it — LastHarness, LastEngine and Model-Downloader.">
-<meta name="theme-color" content="#0a0a09">
+<title>Projects - Omar Barood</title>
+<meta name="description" content="Projects by Omar Barood (TheSyrianDev): Last AI, the local-first AI studio, and the tools under it: LastHarness, LastEngine and Model-Downloader.">
+<meta name="theme-color" content="#f7f3e8">
 <link rel="icon" href="assets/pfp.png" type="image/png">
 <link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<script>
-  /* apply a saved theme before first paint so the page never flashes */
-  try {
-    var t = localStorage.getItem('theme');
-    if (t === 'light' || t === 'dark' || t === 'auto') {
-      document.documentElement.setAttribute('data-theme', t);
-      if (t !== 'auto') {
-        document.querySelector('meta[name="theme-color"]')
-          .setAttribute('content', t === 'light' ? '#f7f3e8' : '#0a0a09');
-      }
-    }
-  } catch (e) {}
-</script>
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800&f[]=switzer@400,500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    var root = document.documentElement;
+    var saved = localStorage.getItem('theme');
+    if (saved) { root.setAttribute('data-theme', saved); return; }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) { root.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
 </head>
 <body>
 
@@ -33,10 +28,9 @@
 
 <header class="top">
   <a class="who" href="./">
-    <img class="avatar" src="assets/pfp.png" alt="" width="32" height="32">
-    Omar Baroud <span>THE SYRIAN DEV</span>
+    <img class="avatar" src="assets/pfp.png" alt="" width="30" height="30">
+    Omar Barood <span>THE SYRIAN DEV</span>
   </a>
-
   <div class="top-right">
     <nav class="top-nav" aria-label="Sections">
       <a href="projects.html" aria-current="page">Projects</a>
@@ -45,11 +39,7 @@
       <a href="/LastSoft/">LastSoft</a>
       <a href="https://github.com/TheSyrianDev">GitHub</a>
     </nav>
-
-    <button class="theme" id="theme-toggle" type="button" aria-label="Theme: auto" title="Theme: auto">
-      <svg class="i-auto" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7">
-        <circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/>
-      </svg>
+    <button class="theme" id="theme-toggle" type="button" aria-label="Theme: light" title="Theme: light">
       <svg class="i-light" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
         <circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 12H2.2M21.8 12h-2.2M6.4 6.4 4.8 4.8M19.2 19.2l-1.6-1.6M17.6 6.4l1.6-1.6M4.8 19.2l1.6-1.6"/>
       </svg>
@@ -64,7 +54,7 @@
 
   <section class="page-head wrap">
     <p class="eyebrow">Projects</p>
-    <h1 class="page-title">One big thing, <em>and the tools it needed</em>.</h1>
+    <h1>One big thing, <em>and the tools it needed</em>.</h1>
     <p class="lede">
       Last AI is the project I actually care about; the rest exist because it
       would not work without them. Each repository is its own thing, with its
@@ -107,7 +97,7 @@
       never hear of the studio.
     </p>
 
-    <ul class="work work-3">
+    <ul class="work">
       <li id="lastharness">
         <span class="name"><a href="https://github.com/TheSyrianDev/LastHarness">LastHarness</a></span>
         <p>
@@ -120,8 +110,8 @@
       <li id="lastengine">
         <span class="name"><a href="https://github.com/TheSyrianDev/LastEngine">LastEngine</a></span>
         <p>
-          Inference, clean-room, in Rust. One backend trait — CUDA first, then
-          CPU, Vulkan, ROCm and Metal — a hardware probe, and a server that
+          Inference, clean-room, in Rust. One backend trait (CUDA first, then
+          CPU, Vulkan, ROCm and Metal), a hardware probe, and a server that
           speaks the local dialect.
         </p>
         <span class="state">v0.1.0 · dev</span>
@@ -156,10 +146,9 @@
     <div class="more-projects">
       <h3>More to come</h3>
       <p>
-        Smaller tools and experiments land here as they are finished — nothing
+        Smaller tools and experiments land here as they are finished. Nothing
         is listed to fill the page. For now, the suite is the whole of it.
       </p>
-      <!-- add new projects as <li> entries in .work above, or their own article here -->
     </div>
   </section>
 
@@ -184,14 +173,14 @@
     </p>
     <div class="contact">
       <a class="mail" href="mailto:omarbarood64@gmail.com">omarbarood64@gmail.com</a>
-      <a class="button" href="https://github.com/TheSyrianDev">GitHub</a>
+      <a class="button ghost" href="https://github.com/TheSyrianDev">GitHub</a>
     </div>
   </section>
 
 </main>
 
 <footer class="wrap">
-  <span>© 2026 Omar Baroud · TheSyrianDev</span>
+  <span>© 2026 Omar Barood · TheSyrianDev</span>
   <span>
     <a href="./">Home</a> ·
     <a href="https://github.com/TheSyrianDev">GitHub</a> ·

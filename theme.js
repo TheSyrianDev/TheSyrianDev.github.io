@@ -1,45 +1,39 @@
-/* Three-state theme: auto (follow the system), light, dark.
-   The stored choice is applied in <head> before first paint; this file only
-   cycles it and keeps the browser chrome colour in step. */
+/* Theme: two states — light and dark only. No system auto; the user chooses.
+   Preference is saved to localStorage under "theme" and reapplied before first
+   paint so the page never flashes the wrong theme.
+   Default is light. Dark appears only when the user picks it. */
 (function () {
   var root = document.documentElement;
   var button = document.getElementById('theme-toggle');
-  var meta = document.querySelector('meta[name="theme-color"]');
   if (!button) return;
 
-  var order = ['auto', 'light', 'dark'];
-  var chrome = { auto: ['#0a0a09', '#f7f3e8'], light: '#f7f3e8', dark: '#0a0a09' };
-  var media = window.matchMedia('(prefers-color-scheme: light)');
-
   function current() {
-    var t = root.getAttribute('data-theme');
-    return t === 'light' || t === 'dark' ? t : 'auto';
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
 
   function paint() {
     var t = current();
-    var label = 'Theme: ' + t + ' (click for ' +
-      order[(order.indexOf(t) + 1) % order.length] + ')';
-    button.setAttribute('aria-label', label);
+    button.setAttribute('aria-label', 'Theme: ' + t + ' (click for the other one)');
     button.setAttribute('title', 'Theme: ' + t);
+    var meta = document.querySelector('meta[name="theme-color"]');
     if (!meta) return;
-    if (t === 'auto') {
-      meta.setAttribute('content', chrome.auto[media.matches ? 1 : 0]);
-    } else {
-      meta.setAttribute('content', chrome[t]);
-    }
+    meta.setAttribute('content', t === 'light' ? '#f7f3e8' : '#0a0a09');
   }
 
   button.addEventListener('click', function () {
-    var next = order[(order.indexOf(current()) + 1) % order.length];
+    var next = current() === 'light' ? 'dark' : 'light';
     root.setAttribute('data-theme', next);
-    try {
-      if (next === 'auto') localStorage.removeItem('theme');
-      else localStorage.setItem('theme', next);
-    } catch (e) {}
+    try { localStorage.setItem('theme', next); } catch (e) {}
     paint();
   });
 
-  media.addEventListener('change', paint);
+  // Apply saved choice before first paint. Default is light; stay light
+  // unless the user has explicitly chosen dark.
+  var saved = localStorage.getItem('theme');
+  if (saved === 'dark') {
+    root.setAttribute('data-theme', 'dark');
+  } else {
+    root.setAttribute('data-theme', 'light');
+  }
   paint();
 })();

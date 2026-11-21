@@ -3,29 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Omar Baroud — TheSyrianDev</title>
-<meta name="description" content="Omar Baroud (TheSyrianDev): student, AI developer and technical support. Builds local-first AI software in Rust, most of it around Last AI.">
-<meta name="theme-color" content="#0a0a09">
+<title>Omar Barood - TheSyrianDev</title>
+<meta name="description" content="Omar Barood (TheSyrianDev): student, AI developer and technical support. Builds local-first AI software in Rust, most of it around Last AI.">
+<meta name="theme-color" content="#f7f3e8">
 <link rel="icon" href="assets/pfp.png" type="image/png">
 <link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<script>
-  /* apply a saved theme before first paint so the page never flashes */
-  try {
-    var t = localStorage.getItem('theme');
-    if (t === 'light' || t === 'dark' || t === 'auto') {
-      document.documentElement.setAttribute('data-theme', t);
-      if (t !== 'auto') {
-        document.querySelector('meta[name="theme-color"]')
-          .setAttribute('content', t === 'light' ? '#f7f3e8' : '#0a0a09');
-      }
-    }
-  } catch (e) {}
-</script>
 <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800&f[]=switzer@400,500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="style.css">
+<script>
+  (function () {
+    var root = document.documentElement;
+    var saved = localStorage.getItem('theme');
+    if (saved) { root.setAttribute('data-theme', saved); return; }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) { root.setAttribute('data-theme', 'dark'); }
+  })();
+</script>
 </head>
 <body>
 
@@ -33,10 +28,9 @@
 
 <header class="top">
   <a class="who" href="./">
-    <img class="avatar" src="assets/pfp.png" alt="" width="32" height="32">
-    Omar Baroud <span>THE SYRIAN DEV</span>
+    <img class="avatar" src="assets/pfp.png" alt="" width="30" height="30">
+    Omar Barood <span>THE SYRIAN DEV</span>
   </a>
-
   <div class="top-right">
     <nav class="top-nav" aria-label="Sections">
       <a href="projects.html">Projects</a>
@@ -45,11 +39,7 @@
       <a href="/LastSoft/">LastSoft</a>
       <a href="https://github.com/TheSyrianDev">GitHub</a>
     </nav>
-
-    <button class="theme" id="theme-toggle" type="button" aria-label="Theme: auto" title="Theme: auto">
-      <svg class="i-auto" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7">
-        <circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/>
-      </svg>
+    <button class="theme" id="theme-toggle" type="button" aria-label="Theme: light" title="Theme: light">
       <svg class="i-light" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
         <circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.4 12H2.2M21.8 12h-2.2M6.4 6.4 4.8 4.8M19.2 19.2l-1.6-1.6M17.6 6.4l1.6-1.6M4.8 19.2l1.6-1.6"/>
       </svg>
@@ -63,15 +53,13 @@
 <main id="main">
 
   <section class="hero wrap">
-    <div class="hero-text">
-      <p class="eyebrow">Student · AI developer · Technical support</p>
-      <h1>Omar Baroud, <em>TheSyrianDev</em>.</h1>
+    <div class="hero-copy">
+      <h1>Omar Barood, <em>TheSyrianDev</em>.</h1>
       <p class="lede">
         I build AI software that runs on the machine in front of you. Seven years
         in the field, most of it spent on how models behave, what makes an agent
         worth trusting, and what it takes to keep a whole stack local instead of
-        rented. My main project is <strong>Last AI</strong> — pre-release, and
-        it says so.
+        rented. My main project is <strong>Last AI</strong>.
       </p>
       <ul class="facts">
         <li>Rust</li>
@@ -79,17 +67,20 @@
         <li>AI, agents, local inference</li>
         <li>Technical support</li>
       </ul>
+      <div class="hero-actions">
+        <a class="button" href="projects.html">All projects</a>
+        <a class="button ghost" href="mailto:omarbarood64@gmail.com">Email</a>
+      </div>
     </div>
     <div class="hero-mark">
-      <img src="assets/pfp.png" alt="Omar Baroud's monogram: AR, M" width="360" height="360">
-      <p>AR · M<span>TheSyrianDev</span></p>
+      <img src="assets/pfp.png" alt="Omar Barood's monogram: the letters A, R and M" width="360" height="360">
     </div>
   </section>
 
   <section id="work" class="wrap">
     <div class="section-head">
       <h2>Selected work</h2>
-      <a class="more" href="projects.html">All projects →</a>
+      <a class="more" href="projects.html">All projects</a>
     </div>
 
     <a class="featured" href="projects.html#last-ai">
@@ -127,25 +118,9 @@
     <h2>About</h2>
     <div class="about">
       <div>
-        <p>
-          I'm a student in my first year of secondary school, and I spend the
-          rest of my time in software. Seven years in the field, and the thread
-          through all of it is AI: reading how models actually work, testing
-          where they fall over, and writing the plumbing that lets one run
-          usefully on a normal machine instead of someone else's server.
-        </p>
-        <p>
-          I also do technical support, which is where most of what I know about
-          software being <em>used</em> comes from — the difference between a
-          feature that exists and a person who can get through it. That shows up
-          in how I build: defaults explained, failures named, no telemetry
-          quietly phoning home.
-        </p>
-        <p>
-          Most of what I make is open to read at
-          <a href="https://github.com/TheSyrianDev">github.com/TheSyrianDev</a>,
-          and the suite is published under <a href="/LastSoft/">LastSoft</a>.
-        </p>
+        <p>I'm a student in my first year of secondary school, and I spend the rest of my time in software. Seven years in the field, and the thread through all of it is AI: reading how models actually work, testing where they fall over, and writing the plumbing that lets one run usefully on a normal machine instead of someone else's server.</p>
+        <p>I also do technical support, which is where most of what I know about software being <em>used</em> comes from: the difference between a feature that exists and a person who can get through it. That shows up in how I build: defaults explained, failures named, no telemetry quietly phoning home.</p>
+        <p>Most of what I make is open to read at <a href="https://github.com/TheSyrianDev">github.com/TheSyrianDev</a>, and the suite is published under <a href="/LastSoft/">LastSoft</a>.</p>
       </div>
       <aside class="aside">
         <dl>
@@ -154,8 +129,7 @@
           <dt>Focus</dt>
           <dd>Local-first AI, agent harnesses, Rust, Linux and Windows.</dd>
           <dt>Also</dt>
-          <dd>Technical support — troubleshooting, setup, and teaching the thing
-          rather than doing it for you.</dd>
+          <dd>Technical support: troubleshooting, setup, and teaching the thing rather than doing it for you.</dd>
           <dt>Reach me</dt>
           <dd><a href="mailto:omarbarood64@gmail.com">omarbarood64@gmail.com</a></dd>
         </dl>
@@ -170,8 +144,7 @@
       <div>
         <h3>Education</h3>
         <p>Secondary school, first year (10th grade).</p>
-        <p>Self-taught in software: seven years in the field, learning by
-        building and by reading other people's code.</p>
+        <p>Self-taught in software: seven years in the field, learning by building and by reading other people's code.</p>
       </div>
       <div>
         <h3>Languages</h3>
@@ -184,32 +157,28 @@
       <div>
         <h3>Skills</h3>
         <ul>
-          <li>AI fluency — models, prompting, agent behaviour</li>
+          <li>AI fluency: models, prompting, agent behaviour</li>
           <li>Programming and development</li>
           <li>Windows and Linux</li>
           <li>Technical support</li>
         </ul>
       </div>
     </div>
-    <!-- competitions and certificates: add a fourth block here once the certificate details are in -->
   </section>
 
   <section id="contact" class="wrap">
     <h2>Contact</h2>
-    <p class="sub">
-      Fastest by email. For anything about the projects, the repositories are
-      open to issues.
-    </p>
+    <p class="sub">Fastest by email. For anything about the projects, the repositories are open to issues.</p>
     <div class="contact">
       <a class="mail" href="mailto:omarbarood64@gmail.com">omarbarood64@gmail.com</a>
-      <a class="button" href="https://github.com/TheSyrianDev">GitHub</a>
+      <a class="button ghost" href="https://github.com/TheSyrianDev">GitHub</a>
     </div>
   </section>
 
 </main>
 
 <footer class="wrap">
-  <span>© 2026 Omar Baroud · TheSyrianDev</span>
+  <span>© 2026 Omar Barood · TheSyrianDev</span>
   <span>
     <a href="projects.html">Projects</a> ·
     <a href="https://github.com/TheSyrianDev">GitHub</a> ·
