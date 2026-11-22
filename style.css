@@ -11,6 +11,7 @@
   --ink: #f5f1e6;
   --muted: #a29a8b;
   --accent: #e0a526;
+  --accent-glow: rgba(224, 165, 38, 0.5);
   --accent-fill: #e0a526;
   --on-accent: #0a0a09;
   --hair: rgba(245, 241, 230, 0.14);
@@ -36,6 +37,7 @@ html[data-theme="light"] {
   --ink: #16130c;
   --muted: #5e5647;
   --accent: #b07d0a;
+  --accent-glow: rgba(176, 125, 10, 0.5);
   --accent-fill: #b07d0a;
   --on-accent: #0a0a09;
   --hair: rgba(22, 19, 12, 0.16);
@@ -169,12 +171,9 @@ header.top {
   width: 30px;
   height: 30px;
   flex: none;
-  border-radius: 8px;
-  border: 1px solid var(--hair);
   display: block;
   object-fit: cover;
-  background: #0a0a09;
-  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--accent) 55%, transparent));
+  filter: drop-shadow(0 0 4px var(--accent-glow)) drop-shadow(0 0 10px var(--accent-glow));
 }
 
 .who span {
@@ -389,10 +388,8 @@ h1 em {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  border: 1px solid var(--hair);
-  background: #0a0a09;
-  filter: drop-shadow(0 0 26px color-mix(in srgb, var(--accent) 42%, transparent));
+  filter: drop-shadow(0 0 6px var(--accent-glow)) drop-shadow(0 0 20px var(--accent-glow))
+    drop-shadow(0 0 48px var(--accent-glow));
 }
 
 /* ---------------------------------------------------------------
