@@ -65,9 +65,9 @@
     }
 
     if (renderer) {
-      const COUNT = 150;
+      const COUNT = 80;
       const LINK = 6.0;
-      const MAX_LINKS = 900;
+      const MAX_LINKS = 520;
       const DEPTH = 10;
 
       renderer.setClearColor(0x000000, 0);
