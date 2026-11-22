@@ -75,7 +75,9 @@ html {
 
 body {
   margin: 0;
-  background: var(--ground);
+  position: relative;
+  z-index: 0;
+  background: transparent;
   color: var(--ink);
   font-family: var(--text);
   font-size: 17px;
@@ -906,4 +908,14 @@ footer.wrap a:hover {
   }
   .theme, nav.top-nav, .skip { display: none; }
   section { break-inside: avoid; }
+}
+
+/* Page-wide Three.js field, painted behind the content on every page. */
+#fx {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
 }
