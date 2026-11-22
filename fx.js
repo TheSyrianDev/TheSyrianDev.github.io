@@ -28,6 +28,11 @@
   const accent = new THREE.Color(token("--accent", "#b2c27c"));
   const tint = new THREE.Color();
 
+  /* The palette stays exactly as the theme sets it; on a light ground the same
+     accent reads far too loud, so the effect is scaled back instead. */
+  const relLum = 0.2126 * ground.r + 0.7152 * ground.g + 0.0722 * ground.b;
+  let dim = 1 - Math.min(Math.max((relLum - 0.3) / 0.5, 0), 1) * 0.62;
+
   const watch = (fn) =>
     new MutationObserver(fn).observe(document.documentElement, {
       attributes: true,
@@ -86,12 +91,12 @@
       const geo = new THREE.BufferGeometry();
       geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
       const mat = new THREE.PointsMaterial({
-        size: 3.4,
+        size: 2.4 + 1.2 * dim,
         map: sprite,
         transparent: true,
         depthWrite: false,
         color: accent.clone(),
-        opacity: 1,
+        opacity: dim,
       });
       scene.add(new THREE.Points(geo, mat));
 
@@ -106,7 +111,7 @@
           new THREE.LineBasicMaterial({
             vertexColors: true,
             transparent: true,
-            opacity: 0.95,
+            opacity: 0.95 * dim,
             depthWrite: false,
           })
         )
@@ -130,6 +135,8 @@
       watch(() => {
         mat.color.copy(accent.set(token("--accent", "#b2c27c")));
         ground.set(token("--ground", "#0b120e"));
+        dim = 1 - Math.min(Math.max((0.2126 * ground.r + 0.7152 * ground.g + 0.0722 * ground.b - 0.3) / 0.5, 0), 1) * 0.62;
+        mat.opacity = dim;
       });
 
       function paint(t) {
@@ -229,7 +236,7 @@
       const orb = new THREE.Group();
       const core = new THREE.Mesh(
         new THREE.SphereGeometry(0.22, 24, 24),
-        new THREE.MeshBasicMaterial({ color: accent.clone() })
+        new THREE.MeshBasicMaterial({ color: accent.clone(), transparent: true, opacity: 0.55 + 0.45 * dim })
       );
       const halo = new THREE.Sprite(
         new THREE.SpriteMaterial({
@@ -240,19 +247,9 @@
           depthWrite: false,
         })
       );
-      halo.scale.setScalar(2.4);
+      halo.scale.setScalar(1.5 + 1.1 * dim);
       orb.add(core, halo);
       scene.add(orb);
-
-      const sats = [];
-      for (let i = 0; i < 3; i++) {
-        const s = new THREE.Mesh(
-          new THREE.SphereGeometry(0.07, 12, 12),
-          new THREE.MeshBasicMaterial({ color: accent.clone(), transparent: true, opacity: 0.85 })
-        );
-        scene.add(s);
-        sats.push(s);
-      }
 
       const TRAIL = 46;
       const trailPos = new Float32Array(TRAIL * 3);
@@ -266,7 +263,7 @@
           new THREE.LineBasicMaterial({
             vertexColors: true,
             transparent: true,
-            opacity: 0.9,
+            opacity: 0.9 * dim,
             depthWrite: false,
           })
         )
@@ -315,10 +312,14 @@
 
       watch(() => {
         const c = accent.set(token("--accent", "#b2c27c"));
+        ground.set(token("--ground", "#0b120e"));
+        dim = 1 - Math.min(Math.max((0.2126 * ground.r + 0.7152 * ground.g + 0.0722 * ground.b - 0.3) / 0.5, 0), 1) * 0.62;
+        core.material.opacity = 0.55 + 0.45 * dim;
+        halo.material.opacity = 0.4 * dim;
+        halo.scale.setScalar(1.5 + 1.1 * dim);
         core.material.color.copy(c);
         halo.material.color.copy(c);
         pulse.material.color.copy(c);
-        sats.forEach((s) => s.material.color.copy(c));
       });
 
       const target = new THREE.Vector3(0, 0, 0);
@@ -339,15 +340,6 @@
 
         orb.position.lerp(target, 0.14);
         orb.position.z = target.z;
-
-        for (let i = 0; i < sats.length; i++) {
-          const a = t * (1.1 + i * 0.25) + (i * Math.PI * 2) / sats.length;
-          sats[i].position.set(
-            orb.position.x + Math.cos(a) * 0.75,
-            orb.position.y + Math.sin(a) * 0.55,
-            orb.position.z + Math.sin(a * 1.3) * 0.5
-          );
-        }
 
         for (let i = TRAIL - 1; i > 0; i--) {
           trailPos[i * 3] = trailPos[(i - 1) * 3];
@@ -371,7 +363,7 @@
           pulseT = Math.min(1, pulseT + 0.022);
           pulse.position.copy(orb.position);
           pulse.scale.setScalar(1 + pulseT * 16);
-          pulse.material.opacity = (1 - pulseT) * 0.55;
+          pulse.material.opacity = (1 - pulseT) * 0.55 * dim;
         } else {
           pulse.material.opacity = 0;
         }
